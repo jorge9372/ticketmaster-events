@@ -9,15 +9,13 @@ function App() {
 
   const handleNavbarSearch = (term) => {
     setSearchTerm(term);
-
   };
-  console.log(searchTerm, 10)
 
   return (
     <>
-      {/* <Navbar onSearch={handleNavbarSearch} />
-      <Events searchTerm={searchTerm} /> */}
-      <SignupForm />
+      <Navbar onSearch={handleNavbarSearch} />
+      <Events searchTerm={searchTerm} />
+
     </>
   )
 }
