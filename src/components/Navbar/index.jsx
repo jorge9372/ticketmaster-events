@@ -5,12 +5,9 @@ const Navbar = ({ onSearch }) => {
 
     useEffect(() => { console.log('onSearch cambio') }, [onSearch]);
 
-    useEffect(()=>{console.log('componente listo')},[]);
+    useEffect(() => { console.log('componente listo') }, []);
 
-    useEffect(()=>{console.log('search cambio')},[search]);
-
-
-
+    useEffect(() => { console.log('search cambio') }, [search]);
 
     const handleInputChange = (event) => {
         setSearch(event.target.value);
@@ -22,14 +19,32 @@ const Navbar = ({ onSearch }) => {
     };
 
     return (
-        <div>
-            <p>Mi boletera</p>
-            <input
-                placeholder="Busca tu evento favorito"
-                onChange={handleInputChange}
-                onKeyDown={handleInputKeyDawn}
-                value={search}
-            />
+        <div style={{
+            marginBottom: 14,
+            width: '100%',
+            display: 'flex',
+        }}>
+            <div style={{ flex: 1, display: 'flex' }}>
+                <p style={{
+                    fontSize: 24,
+                    fontWeight: 'bold',
+                }}>Mi boletera</p>
+            </div>
+            <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+                <input
+                    placeholder="Busca tu evento favorito"
+                    onChange={handleInputChange}
+                    onKeyDown={handleInputKeyDawn}
+                    value={search}
+                    style={{
+                        fontSize: 16,
+                        borderRadius: 4,
+                        padding: '6px 12px',
+                        border: 'none',
+                        width: 200,
+                    }}
+                />
+            </div>
         </div>
     );
 };
