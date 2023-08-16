@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import useEventsData from "../../hooks/useEventsData";
+import useEventsResults from '../../state/events-result';
 import Navbar from '../../components/Navbar';
 import Events from '../../components/Events';
 import ReactPaginate from 'react-paginate';
@@ -7,8 +7,11 @@ import ReactPaginate from 'react-paginate';
 import styles from './Home.module.css';
 
 const Home = () => {
+    const { data, loading, error, fetchEvents } = useEventsResults();
+    const events = data?._embedded?.events || [];
+    const page = data?.page || {};
+
     const [searchTerm, setSearchTerm] = useState('');
-    const { events, page, loading, error, fetchEvents } = useEventsData();
 
     useEffect(() => {
         fetchEvents();
