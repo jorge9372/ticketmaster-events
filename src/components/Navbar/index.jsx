@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ onSearch }) => {
     const [search, setSearch] = useState('');
@@ -44,6 +45,11 @@ const Navbar = ({ onSearch }) => {
                         width: 200,
                     }}
                 />
+                <Link to="/profile" style={{
+                    marginLeft: 24,
+                    color: '#fff',
+                    textDecoration: 'none'
+                }}>Mi perfil</Link>
             </div>
         </div>
     );
