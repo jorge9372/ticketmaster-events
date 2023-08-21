@@ -2,6 +2,7 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
+import { Suspense } from "react";
 
 import Home from '../views/Home';
 import Detail from '../views/Detail';
@@ -9,7 +10,7 @@ import Error404 from "../views/Error404";
 
 import Profile from "../views/Profile";
 import LikedEvents from "../views/Profile/components/LikedEvents";
-import MyInfo from "../views/Profile/components/MyInfo/MyInfo";
+import MyInfo from "../views/Profile/components/MyInfo";
 
 const router = createBrowserRouter([
     {
@@ -19,7 +20,10 @@ const router = createBrowserRouter([
     },
     {
         path: '/detail/:eventId',
-        element: <Detail />
+        element:
+            <Suspense fallback={<div>Cargando...</div>}>
+                <Detail />
+            </Suspense>
     },
     {
         path: '/profile',

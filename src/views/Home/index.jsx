@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useEventsResults from '../../state/events-result';
 import Navbar from '../../components/Navbar';
 import Events from '../../components/Events';
@@ -13,8 +13,11 @@ const Home = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
 
+    const fetchMyEventsRef = useRef();
+    fetchMyEventsRef.current = fetchEvents;
+
     useEffect(() => {
-        fetchEvents();
+        fetchMyEventsRef.current();
     }, [])
 
     const handleNavbarSearch = (term) => {
