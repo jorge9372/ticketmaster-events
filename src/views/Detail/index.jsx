@@ -9,7 +9,6 @@ import eventFetcher from "../../utils/fetchevents";
 import styles from './Detail.module.css'
 
 const pathname = window.location.pathname;
-
 const resource = eventFetcher(pathname.substring(8, pathname.length));
 
 
@@ -19,11 +18,7 @@ const Detail = () => {
     // const [eventData, setEventData] = useState({});
 
     const eventData = resource.eventDetail.read();
-    console.log(eventData);
-
-
-
-
+  
     return (
         <div className={styles.conteiner}>
             <div className={styles.mainInfoContainer}>
